@@ -77,11 +77,12 @@ nav a:hover,nav a.active{opacity:1;background:rgba(200,22,106,.15);color:var(--m
 .hero-stat span{font-size:.82rem;color:rgba(255,255,255,.5);font-weight:500}
 
 /* MARQUEE */
-.marquee-section{background:var(--dark2);padding:32px 0;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);overflow:hidden}
-.marquee-track{display:flex;gap:60px;animation:marquee 28s linear infinite;width:max-content}
+.marquee-section{background:var(--dark2);padding:28px 0;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);overflow:hidden}
+.marquee-track{display:flex;align-items:center;gap:0;animation:marquee 30s linear infinite;width:max-content}
 .marquee-section:hover .marquee-track{animation-play-state:paused}
-.marquee-track img{height:36px;width:auto;opacity:.55;filter:brightness(0) invert(1);transition:opacity .2s}
-.marquee-track img:hover{opacity:1}
+.brand-chip{display:flex;align-items:center;padding:0 44px;border-right:1px solid rgba(255,255,255,.08);white-space:nowrap;font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.12em;color:rgba(255,255,255,.38);text-transform:uppercase;transition:color .25s;cursor:default;flex-shrink:0}
+.brand-chip:hover{color:var(--mg2)}
+.brand-chip span{display:block}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* STATS */
@@ -454,26 +455,30 @@ footer{background:var(--dark);color:#fff;padding:60px 5% 32px}
   <!-- BRANDS MARQUEE -->
   <div class="marquee-section">
     <div class="marquee-track" id="marquee-track">
-      <img src="https://herrerocons.es/wp-content/uploads/2018/12/partner_sika.png" alt="Sika">
-      <img src="https://herrerocons.es/wp-content/uploads/2018/12/partner_katcher.png" alt="Kärcher">
-      <img src="https://herrerocons.es/wp-content/uploads/2018/12/partner_ceys.jpg" alt="Ceys">
-      <img src="https://herrerocons.es/wp-content/uploads/2018/12/partner_gecol.png" alt="Gecol">
-      <img src="https://herrerocons.es/wp-content/uploads/2018/12/partner_ct1.png" alt="CT1">
-      <img src="https://herrerocons.es/wp-content/uploads/2018/12/partner_solga_1.png" alt="Solga">
-      <img src="https://herrerocons.es/wp-content/uploads/2018/12/partner_rubson.png" alt="Rubson">
-      <img src="https://herrerocons.es/wp-content/uploads/2018/12/partner_alpen.png" alt="Alpen">
-      <img src="https://herrerocons.es/wp-content/uploads/2018/12/partner_verniprens.png" alt="Verniprens">
-      <img src="https://herrerocons.es/wp-content/uploads/2020/12/Macodiam_Logo.png" alt="Macodiam">
-      <img src="https://herrerocons.es/wp-content/uploads/2018/12/partner_sika.png" alt="Sika">
-      <img src="https://herrerocons.es/wp-content/uploads/2018/12/partner_katcher.png" alt="Kärcher">
-      <img src="https://herrerocons.es/wp-content/uploads/2018/12/partner_ceys.jpg" alt="Ceys">
-      <img src="https://herrerocons.es/wp-content/uploads/2018/12/partner_gecol.png" alt="Gecol">
-      <img src="https://herrerocons.es/wp-content/uploads/2018/12/partner_ct1.png" alt="CT1">
-      <img src="https://herrerocons.es/wp-content/uploads/2018/12/partner_solga_1.png" alt="Solga">
-      <img src="https://herrerocons.es/wp-content/uploads/2018/12/partner_rubson.png" alt="Rubson">
-      <img src="https://herrerocons.es/wp-content/uploads/2018/12/partner_alpen.png" alt="Alpen">
-      <img src="https://herrerocons.es/wp-content/uploads/2018/12/partner_verniprens.png" alt="Verniprens">
-      <img src="https://herrerocons.es/wp-content/uploads/2020/12/Macodiam_Logo.png" alt="Macodiam">
+      <div class="brand-chip"><span>Sika</span></div>
+      <div class="brand-chip"><span>Kärcher</span></div>
+      <div class="brand-chip"><span>Ceys</span></div>
+      <div class="brand-chip"><span>Gecol</span></div>
+      <div class="brand-chip"><span>CT1</span></div>
+      <div class="brand-chip"><span>Solga</span></div>
+      <div class="brand-chip"><span>Rubson</span></div>
+      <div class="brand-chip"><span>Alpen</span></div>
+      <div class="brand-chip"><span>Verniprens</span></div>
+      <div class="brand-chip"><span>Macodiam</span></div>
+      <div class="brand-chip"><span>Henkel</span></div>
+      <div class="brand-chip"><span>Bosch</span></div>
+      <div class="brand-chip"><span>Sika</span></div>
+      <div class="brand-chip"><span>Kärcher</span></div>
+      <div class="brand-chip"><span>Ceys</span></div>
+      <div class="brand-chip"><span>Gecol</span></div>
+      <div class="brand-chip"><span>CT1</span></div>
+      <div class="brand-chip"><span>Solga</span></div>
+      <div class="brand-chip"><span>Rubson</span></div>
+      <div class="brand-chip"><span>Alpen</span></div>
+      <div class="brand-chip"><span>Verniprens</span></div>
+      <div class="brand-chip"><span>Macodiam</span></div>
+      <div class="brand-chip"><span>Henkel</span></div>
+      <div class="brand-chip"><span>Bosch</span></div>
     </div>
   </div>
 
