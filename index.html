@@ -18,29 +18,57 @@ button{cursor:pointer;font-family:'Inter',sans-serif}
 h1,h2,h3,h4{font-family:'Syne',sans-serif}
 
 /* SCROLL BAR */
-#scroll-bar{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--mg),var(--mg2));z-index:9999;transition:width .1s}
+#scroll-bar{position:fixed;top:36px;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--mg),var(--mg2));z-index:9999;transition:width .1s}
 
 /* HEADER */
-header{position:fixed;top:3px;left:0;right:0;z-index:999;padding:0 5%;transition:all .3s;background:transparent}
-header.scrolled{background:rgba(13,14,26,.96);backdrop-filter:blur(12px);box-shadow:0 2px 20px rgba(0,0,0,.4)}
-.header-inner{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px}
-.logo img{height:48px;width:auto;object-fit:contain;border-radius:6px}
-nav{display:flex;gap:8px;align-items:center}
-nav a{color:var(--white);font-size:.9rem;font-weight:500;padding:6px 14px;border-radius:8px;transition:all .2s;opacity:.85}
-nav a:hover,nav a.active{opacity:1;background:rgba(200,22,106,.15);color:var(--mg2)}
-.header-actions{display:flex;align-items:center;gap:12px}
-.cart-btn{position:relative;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:var(--white);width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;transition:all .2s}
-.cart-btn:hover{background:rgba(200,22,106,.2);border-color:var(--mg)}
-.cart-badge{position:absolute;top:-6px;right:-6px;background:var(--mg);color:#fff;font-size:.65rem;font-weight:700;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;display:none}
-.btn-presupuesto{background:linear-gradient(135deg,var(--mg),var(--mg2));color:#fff;border:none;padding:10px 20px;border-radius:10px;font-size:.88rem;font-weight:600;transition:all .2s;white-space:nowrap}
-.btn-presupuesto:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(200,22,106,.4)}
-.hamburger{display:none;background:none;border:none;color:#fff;font-size:1.4rem;padding:4px}
-.mobile-nav{display:none;position:fixed;inset:0;background:rgba(13,14,26,.98);z-index:998;flex-direction:column;align-items:center;justify-content:center;gap:24px}
+/* ── TOP BAR ── */
+.top-bar{position:fixed;top:0;left:0;right:0;z-index:1000;height:36px;background:var(--dark);border-bottom:1px solid rgba(200,22,106,.2);display:flex;align-items:center;justify-content:flex-end;padding:0 5%;gap:24px}
+.top-bar a,.top-bar span{font-size:.75rem;color:rgba(255,255,255,.55);display:flex;align-items:center;gap:6px;transition:color .2s}
+.top-bar a:hover{color:var(--mg2)}
+.top-bar svg{color:var(--mg);flex-shrink:0}
+
+/* ── MAIN HEADER ── */
+header{position:fixed;top:36px;left:0;right:0;z-index:999;padding:0 5%;transition:all .35s ease;background:transparent}
+header.scrolled{background:rgba(10,8,20,.95);backdrop-filter:blur(20px) saturate(1.6);box-shadow:0 1px 0 rgba(200,22,106,.2),0 8px 32px rgba(0,0,0,.4)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:70px;gap:24px}
+
+/* Logo */
+.logo{display:flex;align-items:center;background:#fff;padding:7px 12px;border-radius:10px;transition:all .25s;flex-shrink:0}
+.logo:hover{background:#fff;transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,0,0,.25)}
+.logo img{height:38px;width:auto;object-fit:contain}
+
+/* Nav */
+nav{display:flex;align-items:center;gap:2px}
+nav a{color:rgba(255,255,255,.75);font-size:.88rem;font-weight:500;padding:8px 14px;border-radius:8px;transition:all .2s;position:relative;white-space:nowrap}
+nav a::after{content:'';position:absolute;bottom:5px;left:14px;right:14px;height:2px;background:var(--mg2);border-radius:2px;transform:scaleX(0);transition:transform .25s}
+nav a:hover{color:#fff;background:rgba(255,255,255,.06)}
+nav a:hover::after{transform:scaleX(1)}
+nav a.active{color:#fff}
+nav a.active::after{transform:scaleX(1)}
+
+/* Actions */
+.header-actions{display:flex;align-items:center;gap:10px}
+.header-phone{display:flex;align-items:center;gap:6px;color:rgba(255,255,255,.65);font-size:.82rem;font-weight:500;padding:8px 14px;border-radius:8px;border:1px solid rgba(255,255,255,.1);transition:all .2s;white-space:nowrap}
+.header-phone:hover{color:#fff;border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.05)}
+.header-phone svg{color:var(--mg2);flex-shrink:0}
+.cart-btn{position:relative;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.14);color:#fff;width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.cart-btn:hover{background:rgba(200,22,106,.22);border-color:var(--mg)}
+.cart-badge{position:absolute;top:-8px;right:-8px;background:linear-gradient(135deg,var(--mg),var(--mg2));color:#fff;font-size:.6rem;font-weight:800;width:20px;height:20px;border-radius:50%;border:2px solid #0a0814;display:none;align-items:center;justify-content:center}
+.btn-presupuesto{background:linear-gradient(135deg,var(--mg) 0%,var(--mg2) 100%);color:#fff;border:none;padding:11px 22px;border-radius:10px;font-size:.88rem;font-weight:700;letter-spacing:.02em;transition:all .25s;white-space:nowrap;box-shadow:0 4px 16px rgba(200,22,106,.35)}
+.btn-presupuesto:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(200,22,106,.55)}
+
+/* Hamburger */
+.hamburger{display:none;flex-direction:column;justify-content:space-between;width:24px;height:17px;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0}
+.hamburger span{display:block;height:2px;background:#fff;border-radius:2px;transition:all .3s}
+
+/* Mobile nav */
+.mobile-nav{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,8,20,.98);z-index:998;flex-direction:column;align-items:center;justify-content:center;gap:28px}
 .mobile-nav.open{display:flex}
-.mobile-nav a{color:#fff;font-size:1.4rem;font-family:'Syne',sans-serif;font-weight:700}
+.mobile-nav a{color:rgba(255,255,255,.85);font-size:1.5rem;font-family:'Syne',sans-serif;font-weight:700;transition:color .2s}
+.mobile-nav a:hover{color:var(--mg2)}
 
 /* PAGES */
-.page{display:none;min-height:100vh;padding-top:75px}
+.page{display:none;min-height:100vh;padding-top:106px}
 
 /* SECTIONS COMMON */
 .section{padding:80px 5%}
@@ -62,7 +90,7 @@ nav a:hover,nav a.active{opacity:1;background:rgba(200,22,106,.15);color:var(--m
 
 /* ===== HOME PAGE ===== */
 /* HERO */
-.hero{min-height:100vh;background:linear-gradient(135deg,var(--dark) 0%,#1a0a14 50%,var(--dark2) 100%);display:flex;align-items:center;padding:120px 5% 80px;position:relative;overflow:hidden}
+.hero{min-height:100vh;background:linear-gradient(135deg,var(--dark) 0%,#1a0a14 50%,var(--dark2) 100%);display:flex;align-items:center;padding:160px 5% 80px;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(200,22,106,.18) 0%,transparent 70%);pointer-events:none}
 .hero::after{content:'';position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(200,22,106,.1) 0%,transparent 70%);pointer-events:none}
 .hero-content{max-width:680px;position:relative;z-index:1}
@@ -348,9 +376,11 @@ footer{background:var(--dark);color:#fff;padding:60px 5% 32px}
   .footer-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:768px){
+  .top-bar .top-bar-email{display:none}
   nav{display:none}
+  .header-phone{display:none}
   .btn-presupuesto{display:none}
-  .hamburger{display:block}
+  .hamburger{display:flex}
   .hero h1{font-size:2.6rem}
   .services-grid{grid-template-columns:1fr 1fr}
   .value-section{grid-template-columns:1fr;gap:40px}
@@ -381,9 +411,18 @@ footer{background:var(--dark);color:#fff;padding:60px 5% 32px}
 <div id="scroll-bar"></div>
 
 <!-- HEADER -->
+<!-- TOP BAR -->
+<div class="top-bar">
+  <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>L-J 7:00–17:30 · V 7:00–14:30</span>
+  <a href="mailto:herrerocons@herrerocons.es"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>herrerocons@herrerocons.es</a>
+  <a href="tel:+34915252525"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.22 2.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.46-.46a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>91 525 25 25</a>
+</div>
+
 <header id="main-header">
   <div class="header-inner">
-    <a href="#/" class="logo"><img src="https://herrerocons.es/wp-content/uploads/2018/12/logo.jpg" alt="Herrerocons"></a>
+    <a href="#/" class="logo">
+      <img src="https://herrerocons.es/wp-content/uploads/2018/12/logo.jpg" alt="Herrerocons">
+    </a>
     <nav id="main-nav">
       <a href="#/">Inicio</a>
       <a href="#/tienda">Tienda</a>
@@ -392,12 +431,18 @@ footer{background:var(--dark);color:#fff;padding:60px 5% 32px}
       <a href="#/contacto">Contacto</a>
     </nav>
     <div class="header-actions">
+      <a href="tel:+34915252525" class="header-phone">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.22 2.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.46-.46a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+        91 525 25 25
+      </a>
       <button class="cart-btn" onclick="openCart()" aria-label="Carrito">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
         <span class="cart-badge" id="cart-badge">0</span>
       </button>
-      <a href="#/contacto" class="btn-presupuesto">Presupuesto</a>
-      <button class="hamburger" onclick="toggleMobileNav()" aria-label="Menú">&#9776;</button>
+      <a href="#/contacto" class="btn-presupuesto">Presupuesto →</a>
+      <button class="hamburger" onclick="toggleMobileNav()" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
 </header>
@@ -1062,37 +1107,38 @@ footer{background:var(--dark);color:#fff;padding:60px 5% 32px}
 
 <script>
 // ===== PRODUCTS DATA =====
+const HC='https://herrerocons.es/wp-content/uploads';
 const products = [
-  {id:1,name:'Azulejo Subway Blanco',cat:'ceramica',price:18.90,badge:'Popular',img:'subway-blanco'},
-  {id:2,name:'Porcelánico Mármol Carrara',cat:'ceramica',price:42.50,badge:null,img:'marmol-carrara'},
-  {id:3,name:'Azulejo Zellige Handmade',cat:'ceramica',price:67.00,badge:'Nuevo',img:'zellige'},
-  {id:4,name:'Porcelánico Antideslizante Gris',cat:'ceramica',price:29.90,badge:null,img:'antideslizante-gris'},
-  {id:5,name:'Azulejo Metro Biselado',cat:'ceramica',price:22.50,badge:'Oferta',img:'metro-biselado'},
-  {id:6,name:'Pavimento Gres Exterior',cat:'pavimentos',price:34.90,badge:null,img:'gres-exterior'},
-  {id:7,name:'Adoquín Hormigón',cat:'pavimentos',price:12.50,badge:'Popular',img:'adoquin-hormigon'},
-  {id:8,name:'Tarima Composite',cat:'pavimentos',price:58.00,badge:null,img:'tarima-composite'},
-  {id:9,name:'Pavimento Porcelánico XXL',cat:'pavimentos',price:48.90,badge:'Nuevo',img:'porcelanico-xxl'},
-  {id:10,name:'Piedra Natural Cuarcita',cat:'pavimentos',price:89.00,badge:null,img:'cuarcita'},
-  {id:11,name:'Cemento Portland CEM II',cat:'construccion',price:8.90,badge:'Popular',img:'cemento-portland'},
-  {id:12,name:'Mortero Sika',cat:'construccion',price:14.50,badge:null,img:'mortero-sika'},
-  {id:13,name:'Áridos Lavados',cat:'construccion',price:6.90,badge:null,img:'aridos-lavados'},
-  {id:14,name:'Yeso Proyectable',cat:'construccion',price:11.90,badge:null,img:'yeso-proyectable'},
-  {id:15,name:'Hormigón Celular',cat:'construccion',price:19.90,badge:'Nuevo',img:'hormigon-celular'},
-  {id:16,name:'Taladro Percutor Kärcher',cat:'herramientas',price:129.00,badge:'Popular',img:'taladro-karcher'},
-  {id:17,name:'Amoladora Angular Bosch',cat:'herramientas',price:89.90,badge:null,img:'amoladora-bosch'},
-  {id:18,name:'Nivel Láser',cat:'herramientas',price:74.50,badge:'Nuevo',img:'nivel-laser'},
-  {id:19,name:'Set Herramientas Construcción',cat:'herramientas',price:149.00,badge:null,img:'set-herramientas'},
-  {id:20,name:'Mezclador Eléctrico',cat:'herramientas',price:99.90,badge:'Oferta',img:'mezclador-electrico'},
-  {id:21,name:'Impermeabilizante Sika Top',cat:'impermeabilizantes',price:38.90,badge:'Popular',img:'sika-top'},
-  {id:22,name:'Lámina Impermeabilizante',cat:'impermeabilizantes',price:24.50,badge:null,img:'lamina-imperm'},
-  {id:23,name:'Pintura Impermeabilizante Elástica',cat:'impermeabilizantes',price:32.90,badge:null,img:'pintura-elastica'},
-  {id:24,name:'Cinta Selladora',cat:'impermeabilizantes',price:12.90,badge:'Nuevo',img:'cinta-selladora'},
-  {id:25,name:'Resina Epoxídica',cat:'impermeabilizantes',price:45.00,badge:null,img:'resina-epoxidica'},
-  {id:26,name:'Casco Seguridad',cat:'epi',price:18.90,badge:null,img:'casco-seguridad'},
-  {id:27,name:'Guantes Nitrilo',cat:'epi',price:8.90,badge:'Popular',img:'guantes-nitrilo'},
-  {id:28,name:'Gafas Protectoras',cat:'epi',price:11.50,badge:null,img:'gafas-protectoras'},
-  {id:29,name:'Chaleco Reflectante',cat:'epi',price:14.90,badge:null,img:'chaleco-reflectante'},
-  {id:30,name:'Botas Seguridad S3',cat:'epi',price:79.90,badge:'Nuevo',img:'botas-s3'},
+  {id:1,name:'Azulejo Subway Blanco',cat:'ceramica',price:18.90,badge:'Popular',img:`${HC}/2022/11/1.jpg`},
+  {id:2,name:'Porcelánico Mármol Carrara',cat:'ceramica',price:42.50,badge:null,img:`${HC}/2020/12/BEYEM-PORCELANICO-2.jpg`},
+  {id:3,name:'Azulejo Zellige Handmade',cat:'ceramica',price:67.00,badge:'Nuevo',img:`${HC}/2022/11/2.jpg`},
+  {id:4,name:'Porcelánico Antideslizante Gris',cat:'ceramica',price:29.90,badge:null,img:`${HC}/2022/11/3.jpg`},
+  {id:5,name:'Azulejo Metro Biselado',cat:'ceramica',price:22.50,badge:'Oferta',img:`${HC}/2019/02/INTERIOR-BORDE-PISCINA-GRECOGRES-1.jpg`},
+  {id:6,name:'Pavimento Gres Exterior',cat:'pavimentos',price:34.90,badge:null,img:`${HC}/2021/03/pavimentos-revestimientos-herrerocons-570x320.jpeg`},
+  {id:7,name:'Adoquín Hormigón Gris',cat:'pavimentos',price:12.50,badge:'Popular',img:`${HC}/2019/02/ADOQUIN-1.jpg`},
+  {id:8,name:'Tarima Composite',cat:'pavimentos',price:58.00,badge:null,img:`${HC}/2022/11/4.jpg`},
+  {id:9,name:'Pavimento Porcelánico XXL',cat:'pavimentos',price:48.90,badge:'Nuevo',img:`${HC}/2022/11/5.jpg`},
+  {id:10,name:'Piedra Natural Cuarcita',cat:'pavimentos',price:89.00,badge:null,img:`${HC}/2019/02/BASE-GRECOGRES-270x180.jpg`},
+  {id:11,name:'Cemento Portland CEM II 25kg',cat:'construccion',price:8.90,badge:'Popular',img:`${HC}/2019/02/CEMENTO-GRIS-25KGS-1.jpg`},
+  {id:12,name:'Cemento Cola Extra',cat:'construccion',price:14.50,badge:null,img:`${HC}/2019/02/CEMENTO-UNION-1.jpg`},
+  {id:13,name:'Áridos Lavados a Granel',cat:'construccion',price:6.90,badge:null,img:`${HC}/2019/03/arena-270x300.jpg`},
+  {id:14,name:'Yeso Blanco Proyectable',cat:'construccion',price:11.90,badge:null,img:`${HC}/2019/02/CEMENTO-BLANCO-1.jpg`},
+  {id:15,name:'Cemento Rápido',cat:'construccion',price:19.90,badge:'Nuevo',img:`${HC}/2019/02/CEMENTO-RAPIDO-1.jpg`},
+  {id:16,name:'Broca Porcelánico Alpen',cat:'herramientas',price:12.90,badge:'Popular',img:`${HC}/2019/03/broca-alpen-270x300.jpg`},
+  {id:17,name:'Broca Roja Alpen Pro',cat:'herramientas',price:18.90,badge:null,img:`${HC}/2019/03/broca-alpen_roja-270x300.jpg`},
+  {id:18,name:'Adaptador Broca SDS',cat:'herramientas',price:24.50,badge:'Nuevo',img:`${HC}/2019/01/301103-270x330.jpg`},
+  {id:19,name:'Juego Puntas y Brocas',cat:'herramientas',price:34.90,badge:null,img:`${HC}/2019/02/507609-270x300.jpg`},
+  {id:20,name:'Paletina de Temple',cat:'herramientas',price:8.90,badge:'Oferta',img:`${HC}/2019/02/PALETINA-TEMPLE-1.jpg`},
+  {id:21,name:'Agua Stop Barrera Total 4kg',cat:'impermeabilizantes',price:38.90,badge:'Popular',img:`${HC}/2019/02/902833-270x330.jpg`},
+  {id:22,name:'Lámina Reflexiva 805-Plus',cat:'impermeabilizantes',price:24.50,badge:null,img:`${HC}/2021/03/805-PLUS.jpg`},
+  {id:23,name:'Agua Stop Invisible 4L',cat:'impermeabilizantes',price:32.90,badge:null,img:`${HC}/2021/11/as_invisible_4l-270x330.jpeg`},
+  {id:24,name:'Cinta Aluminio Adhesiva',cat:'impermeabilizantes',price:12.90,badge:'Nuevo',img:`${HC}/2021/03/CINTA-ALUMINIO.jpg`},
+  {id:25,name:'Agua Stop Hidrofugante',cat:'impermeabilizantes',price:28.90,badge:null,img:`${HC}/2018/12/903350.jpg`},
+  {id:26,name:'Casco de Seguridad',cat:'epi',price:18.90,badge:null,img:'https://picsum.photos/seed/casco-seguridad/400/400'},
+  {id:27,name:'Guantes de Nitrilo',cat:'epi',price:8.90,badge:'Popular',img:'https://picsum.photos/seed/guantes-nitrilo/400/400'},
+  {id:28,name:'Gafas Protectoras',cat:'epi',price:11.50,badge:null,img:'https://picsum.photos/seed/gafas-protectoras/400/400'},
+  {id:29,name:'Chaleco Reflectante',cat:'epi',price:14.90,badge:null,img:'https://picsum.photos/seed/chaleco-reflectante/400/400'},
+  {id:30,name:'Botas de Seguridad S3',cat:'epi',price:79.90,badge:'Nuevo',img:'https://picsum.photos/seed/botas-s3/400/400'},
 ];
 
 // ===== CART =====
@@ -1130,7 +1176,7 @@ function renderCartSidebar(){
   cart.forEach(item=>{
     total+=item.price*item.qty;
     html+=`<div class="cart-item">
-      <img src="https://picsum.photos/seed/${item.img}/200/200" alt="${item.name}">
+      <img src="${item.img}" alt="${item.name}" onerror="this.src='https://picsum.photos/seed/${item.id}/200/200'">
       <div class="cart-item-info">
         <div class="cart-item-name">${item.name}</div>
         <div class="cart-item-price">${(item.price*item.qty).toFixed(2).replace('.',',')} €</div>
@@ -1271,7 +1317,7 @@ function renderShop(){
   grid.innerHTML=filtered.map(p=>`
     <div class="prod-card" onclick="location.hash='#/producto/${p.id}'">
       <div class="prod-img">
-        <img src="https://picsum.photos/seed/${p.img}/400/400" alt="${p.name}" loading="lazy">
+        <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.src='https://picsum.photos/seed/${p.id}/400/400'">
         ${p.badge?`<span class="prod-badge">${p.badge}</span>`:''}
       </div>
       <div class="prod-body">
@@ -1292,7 +1338,7 @@ function renderProduct(idStr){
   if(!p){detail.innerHTML='<p style="padding:40px;color:var(--text2)">Producto no encontrado.</p>';return;}
   document.getElementById('spec-ref').textContent='HC-'+String(id).padStart(3,'0');
   detail.innerHTML=`
-    <div class="prod-gallery"><img src="https://picsum.photos/seed/${p.img}/700/700" alt="${p.name}"></div>
+    <div class="prod-gallery"><img src="${p.img}" alt="${p.name}" onerror="this.src='https://picsum.photos/seed/${p.id}/700/700'"></div>
     <div class="prod-info-panel">
       <div class="prod-cat">${catLabel(p.cat)}</div>
       <h1>${p.name}</h1>
@@ -1316,7 +1362,7 @@ function renderProduct(idStr){
   if(rg)rg.innerHTML=related.map(r=>`
     <div class="prod-card" onclick="location.hash='#/producto/${r.id}';window.scrollTo(0,0)">
       <div class="prod-img">
-        <img src="https://picsum.photos/seed/${r.img}/400/400" alt="${r.name}" loading="lazy">
+        <img src="${r.img}" alt="${r.name}" loading="lazy" onerror="this.src='https://picsum.photos/seed/${r.id}/400/400'">
         ${r.badge?`<span class="prod-badge">${r.badge}</span>`:''}
       </div>
       <div class="prod-body">
