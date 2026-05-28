@@ -29,7 +29,7 @@ h1,h2,h3,h4{font-family:'Syne',sans-serif}
 
 /* ── MAIN HEADER ── */
 header{position:fixed;top:36px;left:0;right:0;z-index:999;padding:0 5%;transition:all .35s ease;background:transparent}
-header.scrolled{background:rgba(10,8,20,.95);backdrop-filter:blur(20px) saturate(1.6);box-shadow:0 1px 0 rgba(200,22,106,.2),0 8px 32px rgba(0,0,0,.4)}
+header.scrolled,header.solid{background:rgba(10,8,20,.97);backdrop-filter:blur(20px) saturate(1.6);box-shadow:0 1px 0 rgba(200,22,106,.2),0 8px 32px rgba(0,0,0,.4)}
 .header-inner{display:flex;align-items:center;justify-content:space-between;height:70px;gap:24px}
 
 /* Logo */
@@ -1207,8 +1207,13 @@ let currentCat='all';
 function router(){
   const hash=location.hash||'#/';
   document.querySelectorAll('.page').forEach(p=>p.style.display='none');
+  const hdr=document.getElementById('main-header');
+  const isHome=hash==='#/'||hash==='#';
+  // On non-home pages: always solid dark. On home: controlled by scroll.
+  hdr.classList.toggle('solid',!isHome);
+
   document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active'));
-  if(hash==='#/'||hash==='#'){
+  if(isHome){
     document.getElementById('page-home').style.display='block';
     document.querySelector('nav a[href="#/"]').classList.add('active');
     initHome();
